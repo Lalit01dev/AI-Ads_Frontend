@@ -107,18 +107,17 @@ if campaign:
         st.warning("No images were returned from the backend.")
         st.json(campaign)  # temporary debug – you can remove later
     else:
-        cols = st.columns(len(scenes))
-        for i, scene in enumerate(scenes):
-            with cols[i]:
-                image_url = scene.get("image")
-                scene_number = scene.get("scene_number", i + 1)
+        scenes = campaign.get("scenes", [])
 
-                if image_url:
-                    st.image(image_url, use_column_width=True)
-                else:
-                    st.warning("Image URL missing")
+            if not scenes:
+                st.info("Images generated. Scenes will appear after video generation.")
+            else:
+                cols = st.columns(len(scenes))
+                for i, scene in enumerate(scenes):
+                    with cols[i]:
+                        st.image(scene.get("image"))
+                        st.caption(f"Scene {scene.get('scene_number', i+1)}")
 
-                st.caption(f"Scene {scene_number}")
 
 
 st.markdown("##  Step 2 — Generate Videos")
@@ -217,6 +216,7 @@ st.markdown("---")
 st.caption(
     " AI Ad Studio Demo — Character consistency • Voiceover • Music • VEO 3.1"
 )
+
 
 
 
