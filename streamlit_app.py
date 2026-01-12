@@ -86,7 +86,7 @@ if st.button(" Generate Campaign"):
             "character_ethnicity": character_ethnicity,
             "num_scenes": num_scenes
         }
-        res = api_post(f"{BASE_URL}/api/campaign/generate_beauty_campaign", params=params, timeout=600)
+        res = api_post(f"{BASE_URL}/campaign/generate_beauty_campaign", params=params, timeout=600)
 
     if "__error__" in res:
         st.error(res["__error__"])
@@ -135,7 +135,7 @@ if st.button(" Generate Videos"):
             update_progress(progress_bar, status_text, 15, " Sending request to backend...")
 
             res = api_post(
-                f"{BASE_URL}/api/campaign/generate_campaign_videos/{campaign_id}",
+                f"{BASE_URL}/campaign/generate_campaign_videos/{campaign_id}",
                 params=params,
                 timeout=3600
             )
@@ -202,4 +202,5 @@ st.markdown("---")
 st.caption(
     " AI Ad Studio Demo — Character consistency • Voiceover • Music • VEO 3.1"
 )
+
 
