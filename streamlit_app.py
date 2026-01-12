@@ -109,9 +109,9 @@ if campaign:
     else:
         scenes = campaign.get("scenes", [])
 
-            if not scenes:
+        if not scenes:
                 st.info("Images generated. Scenes will appear after video generation.")
-            else:
+        else:
                 cols = st.columns(len(scenes))
                 for i, scene in enumerate(scenes):
                     with cols[i]:
@@ -216,6 +216,7 @@ st.markdown("---")
 st.caption(
     " AI Ad Studio Demo — Character consistency • Voiceover • Music • VEO 3.1"
 )
+
 
 
 
