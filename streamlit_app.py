@@ -4,8 +4,7 @@ import time
 import os
 import tempfile
 from urllib.parse import quote_plus
-from dotenv import load_dotenv
-load_dotenv()
+
 
 def start_progress():
     progress_bar = st.progress(0)
@@ -203,3 +202,4 @@ st.markdown("---")
 st.caption(
     " AI Ad Studio Demo — Character consistency • Voiceover • Music • VEO 3.1"
 )
+
